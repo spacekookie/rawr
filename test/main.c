@@ -42,16 +42,16 @@ int main(void)
 
   /* Draw it all! */
   int x, y;
-  for (x = 0; x < vinfo.xres; x++) {
-    for (y = 0; y < vinfo.yres; y++) {
+  for (y = 0; y < vinfo.yres; y++) {
+    for (x = 0; x < vinfo.xres; x++) {
 
       long location = calculate_point(x, y, &vinfo, &finfo);
       *((uint32_t*)(fb_ptr + location)) = pixel_color(0xFF, 0xFF, 0xFF, &vinfo);
     }
+  
+    usleep(5000);
   }
-  usleep(3000000);
-
-
+  
   /*  */
   printf("Rawr!\n");
   return 0;
